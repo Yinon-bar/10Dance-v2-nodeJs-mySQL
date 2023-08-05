@@ -1,10 +1,19 @@
 import mysql, { ConnectionOptions } from "mysql2";
 
+// Local
+// const access: ConnectionOptions = {
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     database: "10dance",
+// };
+
+// Remote - bluehost
 const access: ConnectionOptions = {
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "10dance",
+    host: "50.87.237.60",
+    user: "zerdance_yinon",
+    password: "INONab@053508384",
+    database: "zerdance_general",
 };
 
 const conn = mysql.createPool(access);

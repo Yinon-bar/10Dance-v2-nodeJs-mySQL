@@ -16,8 +16,9 @@ router.get(
 router.get(
     "/api/:table",
     async (req: Request, resp: Response, next: NextFunction) => {
-        const tables = await attendeeLogic.getAllTables();
-        resp.json(tables);
+        const tableName = req.params.table;
+        const attFromTable = await attendeeLogic.getAllAttFromTable(tableName);
+        resp.json(attFromTable);
     }
 );
 

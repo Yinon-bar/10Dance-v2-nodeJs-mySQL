@@ -7,6 +7,7 @@ async function getAllTables() {
 }
 
 async function getAllAttendees() {
+    // const attendees = await dal.execute("SELECT * FROM attendees;");
     const attendees = await dal.execute("SELECT * FROM attendees;");
     return attendees;
 }
@@ -18,8 +19,15 @@ async function getAttendeeById(tz_id: string) {
     return attendees;
 }
 
+async function getAllAttFromTable(table: string) {
+    // console.log(table);
+    const attendees = await dal.execute(`SELECT * FROM ${table};`);
+    return attendees;
+}
+
 export default {
     getAllTables,
     getAllAttendees,
     getAttendeeById,
+    getAllAttFromTable,
 };
