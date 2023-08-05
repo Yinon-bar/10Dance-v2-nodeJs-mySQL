@@ -2,7 +2,8 @@
     "compilerOptions": {
         "module": "NodeNext",
         "target": "ES6",
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "outDir": "dist"
     }
     // "ts-node": { "esm": true }
 }
