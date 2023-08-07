@@ -8,7 +8,7 @@ server.use(express.json());
 
 server.use(
     cors({
-        origin: "https://10dance.netlify.app",
+        origin: "*",
     })
 );
 
