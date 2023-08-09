@@ -7,6 +7,7 @@ const router = express.Router();
 router.get(
     "/api/tables",
     async (req: Request, resp: Response, next: NextFunction) => {
+        resp.header("Access-Control-Allow-Origin", "*");
         const tables = await attendeeLogic.getAllTables();
         resp.json(tables);
     }
@@ -16,6 +17,7 @@ router.get(
 router.get(
     "/api/:table",
     async (req: Request, resp: Response, next: NextFunction) => {
+        resp.header("Access-Control-Allow-Origin", "*");
         const tableName = req.params.table;
         const attFromTable = await attendeeLogic.getAllAttFromTable(tableName);
         resp.json(attFromTable);
@@ -26,6 +28,7 @@ router.get(
 router.get(
     "/api/attendees",
     async (req: Request, resp: Response, next: NextFunction) => {
+        resp.header("Access-Control-Allow-Origin", "*");
         const attendees = await attendeeLogic.getAllAttendees();
         resp.json(attendees);
     }
@@ -34,6 +37,7 @@ router.get(
 router.get(
     "/api/attendees/:tz_id",
     async (req: Request, resp: Response, next: NextFunction) => {
+        resp.header("Access-Control-Allow-Origin", "*");
         const attendee = await attendeeLogic.getAttendeeById(req.params.tz_id);
         resp.json(attendee);
     }
