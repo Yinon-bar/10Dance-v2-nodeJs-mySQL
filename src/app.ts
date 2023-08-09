@@ -14,6 +14,6 @@ server.use(
 
 server.use(router);
 
-server.listen(3001, () => {
-    console.log("Listening to http://localhost:3001");
+server.listen(process.env.port, () => {
+    console.log("Listening to http://localhost:" + process.env.port);
 });
