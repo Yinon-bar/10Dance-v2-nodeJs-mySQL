@@ -3,6 +3,12 @@ import attendeeLogic from "../5-logic/attendee-logic";
 
 const router = express.Router();
 
+// Get try
+router.get("/", async (req: Request, resp: Response, next: NextFunction) => {
+    resp.header("Access-Control-Allow-Origin", "*");
+    resp.json("hello");
+});
+
 // Get all Tables
 router.get(
     "/api/tables",
