@@ -10,6 +10,6 @@ server.use(cors({ origin: "*" }));
 
 server.use(router);
 
-server.listen(process.env.port, () => {
-    console.log("Listening to http://localhost:" + process.env.port);
+server.listen(3001, () => {
+    console.log("Listening to http://localhost:3001");
 });
