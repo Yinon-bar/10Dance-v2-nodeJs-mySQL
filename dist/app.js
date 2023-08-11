@@ -7,6 +7,8 @@ const express_1 = __importDefault(require("express"));
 const attendees_controller_1 = __importDefault(require("./6-controllers/attendees-controller"));
 const cors_1 = __importDefault(require("cors"));
 const server = (0, express_1.default)();
+// לצרף CSS לדף ברוכים הבאים
+server.use(express_1.default.static(__dirname + "/public"));
 server.use(express_1.default.json());
 server.use((0, cors_1.default)({ origin: "*" }));
 server.use(attendees_controller_1.default);

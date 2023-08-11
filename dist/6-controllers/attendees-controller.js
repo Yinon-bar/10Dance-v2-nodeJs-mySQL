@@ -14,11 +14,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const attendee_logic_1 = __importDefault(require("../5-logic/attendee-logic"));
+const path_1 = __importDefault(require("path"));
 const router = express_1.default.Router();
-// Get try
+// Welcome page
 router.get("/", (req, resp, next) => __awaiter(void 0, void 0, void 0, function* () {
     resp.header("Access-Control-Allow-Origin", "*");
-    resp.json("hello");
+    const pathHTML = path_1.default.join(__dirname, "../public");
+    resp.sendFile(pathHTML + "/welcome.html");
 }));
 // Get all Tables
 router.get("/api/tables", (req, resp, next) => __awaiter(void 0, void 0, void 0, function* () {
