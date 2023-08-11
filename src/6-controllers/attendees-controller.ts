@@ -1,12 +1,14 @@
 import express, { NextFunction, Request, Response } from "express";
 import attendeeLogic from "../5-logic/attendee-logic";
+import path from "path";
 
 const router = express.Router();
 
-// Get try
+// Welcome page
 router.get("/", async (req: Request, resp: Response, next: NextFunction) => {
     resp.header("Access-Control-Allow-Origin", "*");
-    resp.json("hello");
+    const pathHTML = path.join(__dirname, "../public");
+    resp.sendFile(pathHTML + "/welcome.html");
 });
 
 // Get all Tables
