@@ -9,19 +9,19 @@ import mysql, { ConnectionOptions } from "mysql2";
 // };
 
 // Remote - bluehost - Yinon Bar
-const access: ConnectionOptions = {
-    host: "50.87.237.60",
-    user: "zerdance_yinon",
-    password: "INONab@053508384",
-    database: "zerdance_general",
-};
-// Remote - bluehost - yochai
 // const access: ConnectionOptions = {
 //     host: "50.87.237.60",
-//     user: "zerdance_Yochai",
-//     password: "Yochai@123456",
+//     user: "zerdance_yinon",
+//     password: "INONab@053508384",
 //     database: "zerdance_general",
 // };
+// Remote - bluehost - yochai
+const access: ConnectionOptions = {
+    host: "50.87.237.60",
+    user: "zerdance_Yochai",
+    password: "Yochai@123456",
+    database: "zerdance_general",
+};
 
 const conn = mysql.createPool(access);
 
