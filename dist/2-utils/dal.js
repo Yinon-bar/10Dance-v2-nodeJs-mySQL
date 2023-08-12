@@ -11,13 +11,20 @@ const mysql2_1 = __importDefault(require("mysql2"));
 //     password: "",
 //     database: "10dance",
 // };
-// Remote - bluehost
+// Remote - bluehost - Yinon Bar
 const access = {
     host: "50.87.237.60",
     user: "zerdance_yinon",
     password: "INONab@053508384",
     database: "zerdance_general",
 };
+// Remote - bluehost - yochai
+// const access: ConnectionOptions = {
+//     host: "50.87.237.60",
+//     user: "zerdance_Yochai",
+//     password: "Yochai@123456",
+//     database: "zerdance_general",
+// };
 const conn = mysql2_1.default.createPool(access);
 // Get all Attendee
 function execute(sql) {

@@ -29,22 +29,38 @@ router.get("/api/tables", (req, resp, next) => __awaiter(void 0, void 0, void 0,
     resp.json(tables);
 }));
 // Get all from specific table
-router.get("/api/:table", (req, resp, next) => __awaiter(void 0, void 0, void 0, function* () {
-    resp.header("Access-Control-Allow-Origin", "*");
-    const tableName = req.params.table;
-    const attFromTable = yield attendee_logic_1.default.getAllAttFromTable(tableName);
-    resp.json(attFromTable);
-}));
+// router.get(
+//     "/api/:table",
+//     async (req: Request, resp: Response, next: NextFunction) => {
+//         resp.header("Access-Control-Allow-Origin", "*");
+//         const tableName = req.params.table;
+//         const attFromTable = await attendeeLogic.getAllAttFromTable(tableName);
+//         resp.json(attFromTable);
+//     }
+// );
 // Get all attendees
-router.get("/api/attendees", (req, resp, next) => __awaiter(void 0, void 0, void 0, function* () {
-    resp.header("Access-Control-Allow-Origin", "*");
-    const attendees = yield attendee_logic_1.default.getAllAttendees();
-    resp.json(attendees);
-}));
+// router.get(
+//     "/api/attendees",
+//     async (req: Request, resp: Response, next: NextFunction) => {
+//         resp.header("Access-Control-Allow-Origin", "*");
+//         const attendees = await attendeeLogic.getAllAttendees();
+//         resp.json(attendees);
+//     }
+// );
 // Get by tz_id
-router.get("/api/attendees/:tz_id", (req, resp, next) => __awaiter(void 0, void 0, void 0, function* () {
-    resp.header("Access-Control-Allow-Origin", "*");
-    const attendee = yield attendee_logic_1.default.getAttendeeById(req.params.tz_id);
+// router.get(
+//     "/api/attendees/:tz_id",
+//     async (req: Request, resp: Response, next: NextFunction) => {
+//         resp.header("Access-Control-Allow-Origin", "*");
+//         const attendee = await attendeeLogic.getAttendeeById(req.params.tz_id);
+//         resp.json(attendee);
+//     }
+// );
+// POST new attendee
+router.get("/api/:table", (req, resp, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const table = req.params.table;
+    const query = req.query.tz_id;
+    const attendee = yield attendee_logic_1.default.getAttendeeByTableAndId(table, query);
     resp.json(attendee);
 }));
 exports.default = router;

@@ -27,9 +27,9 @@ function getAllAttendees() {
         return attendees;
     });
 }
-function getAttendeeById(tz_id) {
+function getAttendeeByTableAndId(table, tz_id) {
     return __awaiter(this, void 0, void 0, function* () {
-        const attendees = yield dal_1.default.execute(`SELECT * FROM attendees WHERE tz_id = ${tz_id};`);
+        const attendees = yield dal_1.default.execute(`SELECT * FROM ${table} WHERE tz_id = ${tz_id};`);
         return attendees;
     });
 }
@@ -43,6 +43,6 @@ function getAllAttFromTable(table) {
 exports.default = {
     getAllTables,
     getAllAttendees,
-    getAttendeeById,
+    getAttendeeByTableAndId,
     getAllAttFromTable,
 };
