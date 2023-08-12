@@ -22,31 +22,45 @@ router.get(
 );
 
 // Get all from specific table
+// router.get(
+//     "/api/:table",
+//     async (req: Request, resp: Response, next: NextFunction) => {
+//         resp.header("Access-Control-Allow-Origin", "*");
+//         const tableName = req.params.table;
+//         const attFromTable = await attendeeLogic.getAllAttFromTable(tableName);
+//         resp.json(attFromTable);
+//     }
+// );
+
+// Get all attendees
+// router.get(
+//     "/api/attendees",
+//     async (req: Request, resp: Response, next: NextFunction) => {
+//         resp.header("Access-Control-Allow-Origin", "*");
+//         const attendees = await attendeeLogic.getAllAttendees();
+//         resp.json(attendees);
+//     }
+// );
+// Get by tz_id
+// router.get(
+//     "/api/attendees/:tz_id",
+//     async (req: Request, resp: Response, next: NextFunction) => {
+//         resp.header("Access-Control-Allow-Origin", "*");
+//         const attendee = await attendeeLogic.getAttendeeById(req.params.tz_id);
+//         resp.json(attendee);
+//     }
+// );
+
+// POST new attendee
 router.get(
     "/api/:table",
     async (req: Request, resp: Response, next: NextFunction) => {
-        resp.header("Access-Control-Allow-Origin", "*");
-        const tableName = req.params.table;
-        const attFromTable = await attendeeLogic.getAllAttFromTable(tableName);
-        resp.json(attFromTable);
-    }
-);
-
-// Get all attendees
-router.get(
-    "/api/attendees",
-    async (req: Request, resp: Response, next: NextFunction) => {
-        resp.header("Access-Control-Allow-Origin", "*");
-        const attendees = await attendeeLogic.getAllAttendees();
-        resp.json(attendees);
-    }
-);
-// Get by tz_id
-router.get(
-    "/api/attendees/:tz_id",
-    async (req: Request, resp: Response, next: NextFunction) => {
-        resp.header("Access-Control-Allow-Origin", "*");
-        const attendee = await attendeeLogic.getAttendeeById(req.params.tz_id);
+        const table = req.params.table;
+        const query = req.query.tz_id;
+        const attendee = await attendeeLogic.getAttendeeByTableAndId(
+            table,
+            query
+        );
         resp.json(attendee);
     }
 );

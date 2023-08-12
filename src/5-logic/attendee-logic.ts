@@ -12,9 +12,9 @@ async function getAllAttendees() {
     return attendees;
 }
 
-async function getAttendeeById(tz_id: string) {
+async function getAttendeeByTableAndId(table: string, tz_id: any) {
     const attendees = await dal.execute(
-        `SELECT * FROM attendees WHERE tz_id = ${tz_id};`
+        `SELECT * FROM ${table} WHERE tz_id = ${tz_id};`
     );
     return attendees;
 }
@@ -28,6 +28,6 @@ async function getAllAttFromTable(table: string) {
 export default {
     getAllTables,
     getAllAttendees,
-    getAttendeeById,
+    getAttendeeByTableAndId,
     getAllAttFromTable,
 };
