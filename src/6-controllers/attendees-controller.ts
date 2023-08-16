@@ -34,7 +34,7 @@ router.get(
 // router.get(
 //     "/api/attendees",
 //     async (req: Request, resp: Response, next: NextFunction) => {
-//         resp.header("Access-Control-Allow-Origin", "*");
+//         resp.header("Access-Control-Allow-Origin",
 //         const attendees = await attendeeLogic.getAllAttendees();
 //         resp.json(attendees);
 //     }
