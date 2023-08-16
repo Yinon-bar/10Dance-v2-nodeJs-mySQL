@@ -34,7 +34,6 @@ router.get(
 // router.get(
 //     "/api/attendees",
 //     async (req: Request, resp: Response, next: NextFunction) => {
-//         resp.header
 //         const attendees = await attendeeLogic.getAllAttendees();
 //         resp.json(attendees);
 //     }
