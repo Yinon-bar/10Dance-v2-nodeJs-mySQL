@@ -30,6 +30,8 @@ router.get(
     }
 );
 
+// get all
+
 // Get all attendees
 // router.get(
 //     "/api/attendees",
