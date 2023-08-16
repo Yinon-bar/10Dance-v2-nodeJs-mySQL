@@ -30,8 +30,6 @@ router.get(
     }
 );
 
-// const
-
 // Get all attendees
 // router.get(
 //     "/api/attendees",
