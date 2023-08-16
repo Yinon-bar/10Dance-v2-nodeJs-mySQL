@@ -30,7 +30,7 @@ router.get(
     }
 );
 
-// const
+// cons
 
 // Get all attendees
 // router.get(
