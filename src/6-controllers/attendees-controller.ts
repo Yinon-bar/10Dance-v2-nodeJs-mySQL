@@ -15,22 +15,20 @@ router.get("/", async (req: Request, resp: Response, next: NextFunction) => {
 router.get(
     "/api/tables",
     async (req: Request, resp: Response, next: NextFunction) => {
-        resp.header("Access-Control-Allow-Origin", "*");
         const tables = await attendeeLogic.getAllTables();
         resp.json(tables);
     }
 );
 
 // Get all from specific table
-// router.get(
-//     "/api/:table",
-//     async (req: Request, resp: Response, next: NextFunction) => {
-//         resp.header("Access-Control-Allow-Origin", "*");
-//         const tableName = req.params.table;
-//         const attFromTable = await attendeeLogic.getAllAttFromTable(tableName);
-//         resp.json(attFromTable);
-//     }
-// );
+router.get(
+    "/api/:table",
+    async (req: Request, resp: Response, next: NextFunction) => {
+        const tableName = req.params.table;
+        const attFromTable = await attendeeLogic.getAllAttFromTable(tableName);
+        resp.json(attFromTable);
+    }
+);
 
 // Get all attendees
 // router.get(
@@ -52,17 +50,17 @@ router.get(
 // );
 
 // POST new attendee
-router.get(
-    "/api/:table",
-    async (req: Request, resp: Response, next: NextFunction) => {
-        const table = req.params.table;
-        const query = req.query.tz_id;
-        const attendee = await attendeeLogic.getAttendeeByTableAndId(
-            table,
-            query
-        );
-        resp.json(attendee);
-    }
-);
+// router.get(
+//     "/api/:table",
+//     async (req: Request, resp: Response, next: NextFunction) => {
+//         const table = req.params.table;
+//         const query = req.query.tz_id;
+//         const attendee = await attendeeLogic.getAttendeeByTableAndId(
+//             table,
+//             query
+//         );
+//         resp.json(attendee);
+//     }
+// );
 
 export default router;
