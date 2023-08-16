@@ -43,7 +43,6 @@ router.get(
 // router.get(
 //     "/api/attendees/:tz_id",
 //     async (req: Request, resp: Response, next: NextFunction) => {
-//         resp.header("Access-Control-Allow-Origin", "*");
 //         const attendee = await attendeeLogic.getAttendeeById(req.params.tz_id);
 //         resp.json(attendee);
 //     }
